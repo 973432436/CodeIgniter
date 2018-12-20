@@ -407,7 +407,7 @@ class CI_DB_result {
 	public function row_object($n = 0)
 	{
 		$result = $this->result_object();
-		if (count($result) === 0)
+		if (is_bool($result) || count($result) === 0)
 		{
 			return NULL;
 		}
@@ -431,7 +431,7 @@ class CI_DB_result {
 	public function row_array($n = 0)
 	{
 		$result = $this->result_array();
-		if (count($result) === 0)
+		if (is_bool($result) || count($result) === 0)
 		{
 			return NULL;
 		}
@@ -455,7 +455,7 @@ class CI_DB_result {
 	public function first_row($type = 'object')
 	{
 		$result = $this->result($type);
-		return (count($result) === 0) ? NULL : $result[0];
+		return (is_bool($result) || count($result) === 0) ? NULL : $result[0];
 	}
 
 	// --------------------------------------------------------------------
@@ -469,7 +469,7 @@ class CI_DB_result {
 	public function last_row($type = 'object')
 	{
 		$result = $this->result($type);
-		return (count($result) === 0) ? NULL : $result[count($result) - 1];
+		return (is_bool($result) || count($result) === 0) ? NULL : $result[count($result) - 1];
 	}
 
 	// --------------------------------------------------------------------
@@ -483,7 +483,7 @@ class CI_DB_result {
 	public function next_row($type = 'object')
 	{
 		$result = $this->result($type);
-		if (count($result) === 0)
+		if (is_bool($result) || count($result) === 0)
 		{
 			return NULL;
 		}
@@ -504,7 +504,7 @@ class CI_DB_result {
 	public function previous_row($type = 'object')
 	{
 		$result = $this->result($type);
-		if (count($result) === 0)
+		if (is_bool($result) || count($result) === 0)
 		{
 			return NULL;
 		}
